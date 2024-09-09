@@ -1,7 +1,9 @@
 services:
   server:
     container_name: ia_server
-    image: test:a
+    image: ghcr.io/xmikux/itemsadder-image:latest
+    volumes:
+      - ./external:/app/external/
     ports:
       - 25575:25575
     environment:
