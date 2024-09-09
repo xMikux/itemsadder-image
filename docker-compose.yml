@@ -1,0 +1,9 @@
+services:
+  server:
+    container_name: ia_server
+    image: test:a
+    ports:
+      - 25575:25575
+    environment:
+      - RCON_ENV
+

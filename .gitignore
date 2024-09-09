@@ -1,0 +1,5 @@
+*.jar
+*.zip
+
+test/
+start.sh
