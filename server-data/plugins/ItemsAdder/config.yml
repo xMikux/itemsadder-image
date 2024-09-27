@@ -72,7 +72,7 @@ resource-pack:
       ALL: 10000
       DIAMOND: 11000
   custom_blocks_sounds_patch:
-    enabled: true
+    enabled: false
     step:
       enabled: true
       allow_non_player: true
@@ -220,13 +220,8 @@ recipes:
     enabled: true
   custom-recipes:
     unlock:
+      automatically: true
       all-on-join: false
-      on-pickup:
-        any: true
-        ingredients: true
-      on-item-click:
-        any: true
-        ingredients: true
   remove-vanilla-recipes:
     enabled: true
     list:
