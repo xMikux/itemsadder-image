@@ -3,6 +3,7 @@ update-checker: true
 resource-pack:
   uuid: d69238f2-b7ce-30b0-8262-17cd9490f29d
   apply-during-chunk-load-phase: true
+  apply-on-join: false
   hosting:
     no-host:
       enabled: true
@@ -16,7 +17,6 @@ resource-pack:
       enabled: false
       url: ''
       skip-url-file-type-check___DONT_ASK_HELP_IF_SET_TRUE: false
-  apply-on-join: true
   kick-player-on-decline: true
   kick-player-on-fail: true
   delay-ticks: 1
@@ -82,7 +82,26 @@ config_files:
   dictionaries-lang: en
   force-sync-loading: false
 blocks:
-  light-api: true
+  custom:
+    note: true
+    mushroom: true
+    chorus: true
+    wire: false
+    fire: false
+  worlds:
+  - '*'
+  - example_world_*
+  - '*_example_nether'
+  - '!example_disabled_blocks_world'
+  - '!example_disabled_blocks_world_*'
+  campfire_enhancements:
+    enable: true
+    unlit_on_place: true
+    allow_any_item: true
+    drop_when_broken: false
+  cancel-break-wrong-tool:
+    enabled: true
+    send-actionbar: true
   fix-liquids-flow: true
   fix-floating-blocks: true
   fix-glitched-blocks:
@@ -91,20 +110,6 @@ blocks:
   convert-vanilla-blocks:
     enabled: false
     only-new-chunks: true
-  cancel-break-wrong-tool:
-    enabled: true
-    send-actionbar: true
-  campfire_enhancements:
-    enable: true
-    unlit_on_place: true
-    allow_any_item: true
-    drop_when_broken: false
-  custom:
-    note: true
-    mushroom: true
-    chorus: true
-    wire: false
-    fire: false
   remove-unused-palettes-on-region-save: false
 items:
   fix-show-attack-and-damage-as-lore: true
