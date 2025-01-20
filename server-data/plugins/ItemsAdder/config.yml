@@ -2,8 +2,6 @@ metrics: true
 update-checker: true
 resource-pack:
   uuid: d69238f2-b7ce-30b0-8262-17cd9490f29d
-  apply-during-chunk-load-phase: true
-  apply-on-join: false
   hosting:
     no-host:
       enabled: true
@@ -19,14 +17,11 @@ resource-pack:
       skip-url-file-type-check___DONT_ASK_HELP_IF_SET_TRUE: false
   kick-player-on-decline: true
   kick-player-on-fail: true
-  delay-ticks: 1
-  notify-other-plugins-interfering: true
   title:
     enabled: true
   atlas_support: true
   fix_force_unicode_font_images: true
-  expert_users:
-    allow_other_plugins_resourcepacks: false
+  expert_users: {}
   protect-player:
     lock-player: true
     hide-hud: true
@@ -67,6 +62,7 @@ resource-pack:
     - _iainternal
     merge_other_plugins_resourcepacks_folders:
     - ModelEngine/resource pack
+    compress-shader-files: true
   items:
     CustomModelData-starting-value:
       ALL: 10000
@@ -77,6 +73,14 @@ resource-pack:
       enabled: true
       allow_non_player: true
     other: true
+  apply_during_chunk_load_phase: true
+  apply_on_join:
+    enabled: false
+    delay_ticks: 1
+  notify_other_plugins_resourcepacks: true
+  allow_other_plugins_resourcepacks: false
+  pre_1_21_2_shaders_fix:
+    enabled: true
 config_files:
   lang: en
   dictionaries-lang: en
@@ -126,9 +130,6 @@ items:
   update-legacy-items:
     enabled: true
     update_durability: true
-  show_item_durability:
-    in_ia_menu: true
-    in_inventory: false
 liquids:
   enabled: true
 huds:
@@ -200,6 +201,7 @@ effects:
       enabled: true
     anvil:
       enabled: true
+    legacy_colors_compatibility: true
 entities:
   max-furniture-vehicles-per-chunk: 30
   custom-entitites:
@@ -239,6 +241,9 @@ debug:
   benchmark: false
   resourcepacks:
     log_player_install: false
+    compression:
+      files: false
+      overlays: true
   items:
     log-files-loading: false
     log-files-reloading: false
@@ -257,9 +262,6 @@ debug:
     log-recipes-removed-vanilla: false
     log-recipes-unknown-item: false
     log-fix-packet-too-large: false
-  resource-pack:
-    log-extract-default-resources: false
-    log-not-extract-default-resources-already-exist: false
   blocks:
     log-save-load:
       enabled: false
