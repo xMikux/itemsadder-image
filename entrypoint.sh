@@ -20,7 +20,7 @@ setup_rcon() {
 
 # Download Depends
 download_plugins_depend() {
-    wget -O paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/187/downloads/paper-1.21.4-187.jar"
+    wget -O paper.jar "https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/132/downloads/paper-1.21.1-132.jar"
     wget -O plugins/VoidWorldGenerator.jar  "https://hangar.papermc.io/api/v1/projects/VoidWorldGenerator/versions/1.3.0/PAPER/download"
     wget -O plugins/LoneLibs.jar "https://github.com/JavaPlugins/LoneLibs/releases/download/1.0.65/LoneLibs_1.0.65.jar"
     wget -O plugins/ProtocolLib.jar "https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/artifact/build/libs/ProtocolLib.jar"
