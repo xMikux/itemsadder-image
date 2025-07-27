@@ -1,7 +1,16 @@
 metrics: true
 update-checker: true
+server:
+  address: auto
+  port: auto
 resource-pack:
   uuid: d69238f2-b7ce-30b0-8262-17cd9490f29d
+  auto_apply:
+    enabled: true
+    before_join: true
+    delay_ticks: 1
+  kick-player-on-decline: true
+  kick-player-on-fail: true
   hosting:
     no-host:
       enabled: true
@@ -11,20 +20,29 @@ resource-pack:
       enabled: false
       server-ip: 127.0.0.1
       pack-port: 8163
+      append-port: true
+      protection:
+        block_non_game_requests: false
+        rate_limit:
+          enabled: true
+          max_requests: 3
+          period_seconds: 2
+          cooldown:
+            enabled: true
+            duration_minutes: 30
+            trigger_on_failed_times: 5
     external-host:
       enabled: false
       url: ''
       skip-url-file-type-check___DONT_ASK_HELP_IF_SET_TRUE: false
-  kick-player-on-decline: true
-  kick-player-on-fail: true
   title:
     enabled: true
   atlas_support: true
   fix_force_unicode_font_images: true
-  expert_users: {}
+  allow_other_plugins_resourcepacks: true
+  notify_other_plugins_resourcepacks: true
   protect-player:
     lock-player: true
-    hide-hud: true
   command:
     usage-cooldown-seconds: 60
   custom-font:
@@ -36,16 +54,28 @@ resource-pack:
   thin-font:
     enabled: false
   zip:
+    extract_internal_utility_assets: false
     protect-file-from-unzip:
       protection_1: false
       protection_2: false
+      protection_3: false
     compress-png-files: false
     compress-json-files: false
-    generate-custom-armors-textures:
-      vanilla: false
-      optifine: false
-    disable-overwrite-leather-armor-layers-textures: true
-    fix_transparent_noteblocks: false
+    compress-shader-files: false
+    compress_sounds:
+      enabled: true
+      bitrate_quality: 100
+    custom_armors_shaders_legacy:
+      vanilla:
+        overwrite_leather_layers: false
+        generate_shader:
+          1_21_4_lower: false
+          1_21_5_plus: false
+      optifine:
+        generate_cit:
+          1_20_4_lower: false
+    emotes:
+      1_21_5_plus_emotes_shaders: false
     ignore-files-ext:
     - db
     - yml
@@ -56,31 +86,21 @@ resource-pack:
     - rar
     - zip
     - 7z
-    extract_internal_utility_assets: false
     contents-folders-priority:
     - vanilla
     - _iainternal
     merge_other_plugins_resourcepacks_folders:
     - ModelEngine/resource pack
-    compress-shader-files: true
   items:
     CustomModelData-starting-value:
       ALL: 10000
       DIAMOND: 11000
   custom_blocks_sounds_patch:
     enabled: false
-    step:
-      enabled: true
-      allow_non_player: true
+    step: true
     other: true
-  apply_during_chunk_load_phase: true
-  apply_on_join:
-    enabled: false
-    delay_ticks: 1
-  notify_other_plugins_resourcepacks: true
-  allow_other_plugins_resourcepacks: false
   pre_1_21_2_shaders_fix:
-    enabled: true
+    enabled: false
 config_files:
   lang: en
   dictionaries-lang: en
@@ -98,11 +118,6 @@ blocks:
   - '*_example_nether'
   - '!example_disabled_blocks_world'
   - '!example_disabled_blocks_world_*'
-  campfire_enhancements:
-    enable: true
-    unlit_on_place: true
-    allow_any_item: true
-    drop_when_broken: false
   cancel-break-wrong-tool:
     enabled: true
     send-actionbar: true
@@ -130,6 +145,9 @@ items:
   update-legacy-items:
     enabled: true
     update_durability: true
+  auto_update:
+    enabled: true
+    fix_unstackable_items_on_click: true
 liquids:
   enabled: true
 huds:
@@ -137,7 +155,6 @@ huds:
   force_color:
     enabled: false
     color: '#FFFFFF'
-  hide_if_pack_not_accepted: true
 cooldown_bars:
   enabled: true
   refresh_ticks: 1
@@ -146,19 +163,20 @@ cooldown_bars:
     style: SOLID
 loots:
   allow-loots-drop-from-spawners-using-silk-touch: true
-mobs:
-  enabled: true
 compatibility:
   worldguard:
     show_legacy_furniture_flags: false
   advanced_enchantments:
     enable_custom_enchants_in_items_configs: false
+cache_font_images_and_effects_replacements: true
 font_images:
-  replace-in-customitems-name-and-lore: true
   chat:
     enabled: false
-    add-hover-suggestion: true
-    tab-autocompletion_1_19_1_plus: true
+    add_hover_suggestion: true
+    tab_autocompletion_1_19_1_plus: true
+  iaimage-book:
+    max-line-length: 18
+    placeholder-font: minecraft:default
   command:
     enabled: true
     commandblocks: true
@@ -166,6 +184,8 @@ font_images:
     - home
     - sethome
     - tpa
+  customitem_name_and_lore:
+    enabled: true
   sign:
     enabled: true
   book:
@@ -174,42 +194,35 @@ font_images:
     enabled: true
   inventory-title:
     enabled: true
-  vault-prefix-suffix:
-    enabled: true
-    update-every-ticks: 1200
   scoreboard-teams:
     enabled: false
     update-every-ticks: 3600
-  player-display-name:
+text_effects:
+  enabled: false
+  hide_scoreboard_numbers: false
+  hide_scoreboard_numbers_old_clients: false
+  legacy_colors_compatibility: true
+  chat:
     enabled: true
-    update-every-ticks: 1200
-  iaimage-book:
-    max-line-length: 18
-    placeholder-font: minecraft:default
-effects:
-  hide-scoreboard-numbers: false
-  hide-scoreboard-numbers-old-clients: false
-  text-effects:
+  customitem_name_and_lore:
     enabled: true
-    customitem-name-and-lore:
-      enabled: true
-    chat:
-      enabled: true
-    sign:
-      enabled: true
-    book:
-      enabled: true
-    anvil:
-      enabled: true
-    legacy_colors_compatibility: true
+  sign:
+    enabled: true
+  book:
+    enabled: true
+  anvil:
+    enabled: true
 entities:
   max-furniture-vehicles-per-chunk: 30
-  custom-entitites:
+  max_furniture_per_chunk: 20
+  custom_entities:
     enabled: false
-    emotes: false
+    emotes: true
+    max_per_chunk: 5
     expert_users:
       delay_packets: false
       extract_emotes_shaders: true
+      disguises_lag_compensation: true
   furniture:
     auto_convert_to_item_display: false
 recipes:
@@ -237,6 +250,21 @@ recipes:
 player_stats:
   save_type: CUSTOM_NBT # CUSTOM_NBT, PLAYER_DAT
 show_plugin_logo_on_enable: true
+advanced:
+  legacy_shader_armor_conversion:
+    append_new_equipment_tag:
+      enabled: false
+    completely_convert_to_new_equipment_tag:
+      enabled: false
+      new_armor_material: IRON
+  ffmpeg:
+    enabled: true
+    download: true
+  on_registries_changes:
+    auto_re_join:
+      enabled: true
+    kick:
+      enabled: false
 debug:
   benchmark: false
   resourcepacks:
@@ -260,7 +288,6 @@ debug:
     log-recipes-loading: false
     log-recipes-loading-disabled: false
     log-recipes-removed-vanilla: false
-    log-recipes-unknown-item: false
     log-fix-packet-too-large: false
   blocks:
     log-save-load:
@@ -309,5 +336,11 @@ debug:
     log-files-loading: false
     log-entities-loading: false
     log-entities-loading-disabled: false
+    log_bones_spawning: false
   issues:
     log_font_image_replace_json_syntax_exception: true
+  scripts:
+    log_compilation: true
+    log_execution: true
+effects:
+  hide-scoreboard-numbers-old-clients: false
