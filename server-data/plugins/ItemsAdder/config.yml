@@ -63,7 +63,7 @@ resource-pack:
     compress-json-files: false
     compress-shader-files: false
     compress_sounds:
-      enabled: true
+      enabled: false
       bitrate_quality: 100
     custom_armors_shaders_legacy:
       vanilla:
@@ -258,8 +258,8 @@ advanced:
       enabled: false
       new_armor_material: IRON
   ffmpeg:
-    enabled: true
-    download: true
+    enabled: false
+    download: false
   on_registries_changes:
     auto_re_join:
       enabled: true
