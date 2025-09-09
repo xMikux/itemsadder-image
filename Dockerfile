@@ -15,5 +15,5 @@ COPY --from=mc-monitor /download/mc-monitor /bin/mc-monitor
 COPY server-data/ entrypoint.sh /app/
 
 ENTRYPOINT [ "/bin/sh", "/app/entrypoint.sh" ]
-HEALTHCHECK --start-period=30s --retries=12 --interval=20s \
+HEALTHCHECK --start-period=120s --retries=24 --interval=12s \
             CMD ["/bin/mc-monitor", "status"]
