@@ -20,8 +20,8 @@ setup_rcon() {
 
 # Download Depends
 download_plugins_depend() {
-    wget -O paper.jar "https://fill-data.papermc.io/v1/objects/8de7c52c3b02403503d16fac58003f1efef7dd7a0256786843927fa92ee57f1e/paper-1.21.8-60.jar"
-    wget -O plugins/VoidWorldGenerator.jar  "https://github.com/HydrolienF/VoidWorldGenerator/releases/download/1.3.7/VoidWorldGenerator-1.3.7.jar"
+    wget -O paper.jar "https://fill-data.papermc.io/v1/objects/8de7c52c3b02403503d16fac58003f1efef7dd7a0256786843927fa92ee57f1e/paper-1.21.8-60.jar" || exit 1
+    wget -O plugins/VoidWorldGenerator.jar  "https://github.com/HydrolienF/VoidWorldGenerator/releases/download/1.3.7/VoidWorldGenerator-1.3.7.jar" || exit 1
 } 
 
 # Move External Plugin
